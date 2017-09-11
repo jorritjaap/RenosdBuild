@@ -35,6 +35,7 @@ sudo apt-get install libdb4.8-dev libdb4.8++-dev -y
 sudo apt-get install git -y
 
 # 2. clones renos code
+cd .. # go to repo folder
 git clone https://github.com/RenosCoin/RenosCoin.git
 cd RenosCoin
 
