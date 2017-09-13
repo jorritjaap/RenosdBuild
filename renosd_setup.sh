@@ -38,6 +38,20 @@ sudo apt-get install git -y
 cd .. # go to repo folder
 git clone https://github.com/RenosCoin/RenosCoin.git
 cd RenosCoin
+RenosCoin/src && sudo rm -rf secp256k1
+cd RenosCoin/src && sudo git clone https://github.com/bitcoin-core/secp256k1.git secp256k1
+
+
+# 3. Build
+# 3a Setup 
+mkdir src/obj/crypto
+sudo chmod 755 src/leveldb/*
+# 3b Build secp256k1 
+ cd src/secp256k1
+ sudo bash autogen.sh
+ sudo ./configure -prefix=/usr
+ sudo make install
+
 
 # 3. Build
 # 3a Setup 
