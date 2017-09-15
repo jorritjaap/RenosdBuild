@@ -50,17 +50,6 @@ sudo chmod 755 RenosCoin/src/leveldb/*
  sudo bash autogen.sh
  sudo ./configure -prefix=/usr
  sudo make install
-
-
-# 3. Build
-# 3a Setup 
-mkdir RenosCoin/src/obj/crypto
-sudo chmod 755 RenosCoin/src/leveldb/*
-# 3b Build secp256k1 
- cd RenosCoin/src/secp256k1
- sudo bash autogen.sh
- sudo ./configure -prefix=/usr
- sudo make install
  cd ..
  cd ..
 
