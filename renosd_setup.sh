@@ -1,3 +1,4 @@
+#!/bin/bash
 # script to build renosd 
 #
 # Simply run this script as SUDO to build renosd
@@ -37,8 +38,6 @@ sudo apt-get install git -y
 # 2. clones renos code
 cd .. # go to repo folder
 git clone https://github.com/RenosCoin/RenosCoin.git
-cd RenosCoin/src && sudo rm -rf secp256k1
-cd RenosCoin/src && sudo git clone https://github.com/bitcoin-core/secp256k1.git secp256k1
 
 
 # 3. Build
@@ -46,12 +45,12 @@ cd RenosCoin/src && sudo git clone https://github.com/bitcoin-core/secp256k1.git
 mkdir RenosCoin/src/obj/crypto
 sudo chmod 755 RenosCoin/src/leveldb/*
 # 3b Build secp256k1 
- cd RenosCoin/src/secp256k1
- sudo bash autogen.sh
- sudo ./configure -prefix=/usr
- sudo make install
- cd ..
- cd ..
+cd RenosCoin/src/secp256k1
+sudo bash autogen.sh
+sudo ./configure -prefix=/usr
+sudo make install
+cd ..
+cd ..
 
 # 3c Build Renos
 cd src && make -f makefile.unix USE_UPNP=- && strip renosd
